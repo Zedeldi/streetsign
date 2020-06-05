@@ -64,7 +64,7 @@
 						<th>Data Type</th>
 						<th>Name</th>
 						<th>Feed</th>
-						<th>Publish New Posts?</th>
+						<th style="width:100px"></th>
 						<th>
 							<div class="btn-group">
 							<button type="button" class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown">New <span class="caret"></span></button>
@@ -83,7 +83,7 @@
 						<td>{{ source.type }}</td>
 						<td><a href="{{ url_for('external_data_source_edit', source_id=source.id) }}">{{ source.name }}</a></td>
 						<td>{{ source.feed.name }}</td>
-						<td>{{ source.publish }}</td>
+						<th style="width:100px"></td>
 						<td>
 								<a class="btn btn-default" href="{{ url_for('external_data_source_edit', source_id=source.id) }}">Edit</a>
 								<a class="btn btn-danger confirm_ajax_delete" href="#"> &times;</a>

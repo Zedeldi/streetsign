@@ -311,6 +311,7 @@ def post_new(feed_id):
             return redirect(e.url if e.url else request.url)
 
         post.save()
+        post.publish(user) # publish all posts by default
         flash('Saved!')
 
         return redirect(url_for('feedpage', feedid=post.feed.id))
@@ -603,10 +604,9 @@ def external_source_run(source_id):
             post_form_intake(post, fresh_data, post_type_module)
             post.display_time = source.display_time
 
-            if source.publish:
-                post.publisher = source.post_as_user
-                post.publish_date = now()
-                post.published = True
+            post.publisher = source.post_as_user
+            post.publish_date = now()
+            post.published = True
             post.save()
     # else, no new posts! oh well!
 
